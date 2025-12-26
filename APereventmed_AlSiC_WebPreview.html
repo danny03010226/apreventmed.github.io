@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APereventmed | AlSiC Solutions for Advanced Packaging</title>
+  <meta name="description" content="APereventmed AlSiC solutions for thermal management, CTE matching, and warpage control in advanced semiconductor packaging." />
+  <style>
+    :root{
+      --bg:#0b0f14; --panel:#111823; --text:#e8eef6; --muted:#b6c2d1; --line:#243244;
+      --accent:#7dd3fc; --accent2:#a7f3d0; --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px; --max: 1040px; --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: var(--sans); color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 0%, rgba(125,211,252,.10), transparent 55%),
+        radial-gradient(900px 600px at 85% 25%, rgba(167,243,208,.08), transparent 55%),
+        linear-gradient(180deg, #070a0e 0%, var(--bg) 100%);
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{opacity:.9; text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 34px 18px 70px}
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: rgba(11,15,20,.65); border-bottom: 1px solid rgba(36,50,68,.55);}
+    .nav{max-width:var(--max); margin:0 auto; padding: 12px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;}
+    .brand{display:flex; align-items:center; gap:12px; min-width: 240px;}
+    .logoBox{width:44px; height:44px; border-radius: 14px; background: rgba(17,24,35,.72);
+      border:1px solid rgba(36,50,68,.65); box-shadow: var(--shadow); display:grid; place-items:center; overflow:hidden;}
+    .brand .name{font-weight:700}
+    .brand .tag{font-size:12px; color:var(--muted); margin-top:2px}
+    .links{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:flex-end}
+    .links a{padding: 8px 10px; border: 1px solid rgba(36,50,68,.65); border-radius: 12px; color:var(--muted); font-size: 13px;}
+    .links a:hover{color:var(--text); border-color: rgba(125,211,252,.35); text-decoration:none}
+    .cta{padding: 8px 12px !important; border-color: rgba(125,211,252,.35) !important; color: var(--text) !important; background: rgba(125,211,252,.10);}
+    .hero{display:grid; gap: 18px; grid-template-columns: 1.3fr .9fr; align-items:stretch; margin-top: 22px;}
+    @media (max-width: 920px){.hero{grid-template-columns: 1fr} .brand{min-width:auto}}
+    .card{background: rgba(17,24,35,.72); border: 1px solid rgba(36,50,68,.65); border-radius: var(--radius); box-shadow: var(--shadow);}
+    .hero .left{padding: 26px}
+    .hero h1{margin: 0 0 10px; font-size: clamp(28px, 4vw, 44px); line-height: 1.08; letter-spacing: -0.02em;}
+    .hero .sub{color: var(--muted); font-size: 16px; line-height: 1.5; max-width: 70ch;}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top: 16px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding: 8px 10px; border-radius: 999px;
+      border: 1px solid rgba(36,50,68,.75); background: rgba(11,15,20,.35); color: var(--muted); font-size: 12px; white-space: nowrap;}
+    .dot{width:8px; height:8px; border-radius:99px; background: rgba(125,211,252,.85)}
+    .dot.g{background: rgba(167,243,208,.85)}
+    .dot.y{background: rgba(253,230,138,.85)}
+    .hero .right{padding: 20px}
+    .miniTitle{font-size: 12px; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; margin: 2px 0 10px}
+    .kpis{display:grid; gap: 12px}
+    .kpi{padding: 14px; border-radius: 16px; border: 1px solid rgba(36,50,68,.65); background: rgba(11,15,20,.35);}
+    .kpi .v{font-family: var(--mono); font-size: 18px; color: var(--text); margin-bottom: 6px}
+    .kpi .l{font-size: 13px; color: var(--muted); line-height: 1.35}
+    .kpi .note{margin-top: 8px; font-size: 12px; color: rgba(182,194,209,.9)}
+    .grid{margin-top: 20px; display:grid; gap: 16px; grid-template-columns: repeat(12, 1fr);}
+    .span6{grid-column: span 6} .span7{grid-column: span 7} .span5{grid-column: span 5} .span12{grid-column: span 12}
+    @media (max-width: 920px){.span6,.span7,.span5{grid-column: span 12}}
+    .section{padding: 22px}
+    .section h2{margin: 0 0 8px; font-size: 18px; letter-spacing: -0.01em;}
+    .section p{margin: 0; color: var(--muted); line-height: 1.6}
+    ul{margin: 12px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.7}
+    li{margin: 6px 0}
+    .quote{margin-top: 12px; padding: 12px 14px; border-radius: 16px; background: rgba(125,211,252,.08);
+      border: 1px solid rgba(125,211,252,.22); color: rgba(232,238,246,.92); line-height: 1.55; font-size: 13px;}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px}
+    .chip{padding: 8px 10px; border-radius: 999px; border: 1px solid rgba(36,50,68,.65); background: rgba(11,15,20,.35); color: var(--muted); font-size: 12px;}
+    .steps{margin-top: 12px; display:grid; gap: 10px}
+    .step{display:flex; gap: 12px; align-items:flex-start; padding: 12px 14px; border-radius: 16px;
+      border: 1px solid rgba(36,50,68,.65); background: rgba(11,15,20,.35);}
+    .num{width: 26px; height: 26px; border-radius: 10px; display:grid; place-items:center;
+      border: 1px solid rgba(125,211,252,.35); color: rgba(232,238,246,.95); background: rgba(125,211,252,.10);
+      font-family: var(--mono); font-size: 12px; flex: 0 0 auto;}
+    .step .t{font-size: 13px; color: var(--text); margin: 1px 0 4px}
+    .step .d{font-size: 13px; color: var(--muted); margin:0; line-height: 1.5}
+    .contact{display:grid; gap: 14px; grid-template-columns: 1.2fr .8fr; align-items:stretch;}
+    @media (max-width: 920px){ .contact{grid-template-columns: 1fr} }
+    .pill{display:inline-flex; align-items:center; gap:8px; padding: 10px 12px; border-radius: 14px;
+      border: 1px solid rgba(36,50,68,.65); background: rgba(11,15,20,.35); color: var(--muted); font-size: 13px;}
+    .pill b{color: var(--text); font-weight: 650}
+    footer{margin-top: 22px; color: rgba(182,194,209,.85); font-size: 12px; line-height: 1.6;}
+    .small{font-size:12px; color: rgba(182,194,209,.85)}
+    .hr{height:1px; background: rgba(36,50,68,.65); margin: 18px 0}
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="logoBox"><svg width="44" height="44" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg" aria-label="APrevent logo">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6b12a" stop-opacity="1"/>
+      <stop offset="1" stop-color="#e58d00" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8e9bf" stop-opacity="1"/>
+      <stop offset="1" stop-color="#edd9a0" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <!-- stylized “petals” approximating the provided mark -->
+  <path d="M59 10c10 4 18 14 18 25 0 13-11 20-23 22-9 1-17-4-19-12-3-11 5-30 24-35z" fill="url(#g1)"/>
+  <path d="M29 33c9-6 22-5 30 2 10 9 10 22 1 30-10 9-28 5-35-8-6-11-2-18 4-24z" fill="url(#g2)" opacity="0.95"/>
+  <text x="12" y="80" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="16" fill="#6b7280" font-weight="600">APrevent</text>
+</svg></div>
+      <div>
+        <div class="name">APereventmed</div>
+        <div class="tag">Advanced Metal Matrix Composite (MMC) Material for Semiconductor Packaging</div>
+      </div>
+    </div>
+    <div class="links">
+      <a href="#challenges">Challenges</a>
+      <a href="#approach">Approach</a>
+      <a href="#differentiation">Differentiation</a>
+      <a href="#applications">Applications</a>
+      <a href="#collaboration">Collaboration</a>
+      <a class="cta" href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="card left">
+      <div class="miniTitle">AlSiC Solutions for Advanced Packaging</div>
+      <h1>Thermal Management · CTE Matching · Warpage Control</h1>
+      <p class="sub">
+        Application-driven Aluminum Silicon Carbide (AlSiC) solutions aligned with packaging constraints to reduce development risk and improve long-term reliability.
+      </p>
+      <div class="badges">
+        <div class="badge"><span class="dot"></span> Engineering evaluation oriented</div>
+        <div class="badge"><span class="dot g"></span> NDA-based technical discussion</div>
+        <div class="badge"><span class="dot y"></span> Prototype / technology transfer options</div>
+      </div>
+      <div class="quote">
+        Focus: feasibility, manufacturability, and risk reduction — not raw material selling.
+      </div>
+    </div>
+
+    <aside class="card right">
+      <div class="miniTitle">Typical engineering window</div>
+      <div class="kpis">
+        <div class="kpi">
+          <div class="v">k = 170–230 W/m·K</div>
+          <div class="l">Thermal conductivity for heat spreading under high power density.</div>
+          <div class="note small">Adjust based on SiC volume fraction / microstructure.</div>
+        </div>
+        <div class="kpi">
+          <div class="v">CTE = 6–12 ppm/K</div>
+          <div class="l">Tunable CTE matching silicon and substrate constraints.</div>
+          <div class="note small">Customized per package stack & size.</div>
+        </div>
+        <div class="kpi">
+          <div class="v">High stiffness</div>
+          <div class="l">Modulus-driven warpage suppression and dimensional stability.</div>
+          <div class="note small">Designed for thermal cycling robustness.</div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="challenges" class="grid">
+    <div class="card section span7">
+      <h2>Engineering challenges in advanced packaging</h2>
+      <p>
+        As package size and power density increase, packaging performance becomes limited by structural and thermo-mechanical constraints.
+      </p>
+      <ul>
+        <li>Substrate <b>warpage</b> driven by CTE mismatch and thermal gradients</li>
+        <li>Heat spreading limitations affecting junction temperature and margin</li>
+        <li>Mechanical instability during assembly and reliability testing</li>
+        <li>Trade-off between thermal performance and structural stiffness</li>
+      </ul>
+    </div>
+    <div class="card section span5">
+      <h2>What we deliver</h2>
+      <ul>
+        <li>Material & structure recommendation based on requirements</li>
+        <li>DFM-oriented guidance (flatness, tolerance, interfaces)</li>
+        <li>Feasibility assessment / risk review (NDA optional)</li>
+        <li>Prototype support or technology transfer (case-dependent)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="approach" class="grid">
+    <div class="card section span6">
+      <h2>Application-driven AlSiC approach</h2>
+      <p>We optimize AlSiC for packaging constraints, not just a datasheet target.</p>
+      <div class="chips">
+        <div class="chip">CTE matching</div>
+        <div class="chip">Heat spreading</div>
+        <div class="chip">Warpage suppression</div>
+        <div class="chip">Thermal cycling stability</div>
+        <div class="chip">Manufacturability</div>
+      </div>
+    </div>
+    <div class="card section span6">
+      <h2>Why AlSiC</h2>
+      <ul>
+        <li>Tunable CTE to align silicon/substrate/mechanical parts</li>
+        <li>High thermal conductivity for lateral spreading</li>
+        <li>High modulus for structural stability</li>
+        <li>Lower density than CuW-based materials</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="differentiation" class="grid">
+    <div class="card section span12">
+      <h2>Technical differentiation</h2>
+      <p>
+        We aim to reduce trial-and-error by combining microstructure control and process know-how with packaging-level considerations.
+      </p>
+      <div class="grid" style="margin-top:12px">
+        <div class="card section span6" style="background: rgba(11,15,20,.35)">
+          <h2 style="margin-bottom:6px">Material / process</h2>
+          <ul>
+            <li>Controlled composition & microstructure for stability</li>
+            <li>Process know-how: infiltration, densification, finishing</li>
+            <li>Quality targets: consistency, flatness, dimensional control</li>
+          </ul>
+        </div>
+        <div class="card section span6" style="background: rgba(11,15,20,.35)">
+          <h2 style="margin-bottom:6px">DFM / packaging interfaces</h2>
+          <ul>
+            <li>Machining tolerance and flatness planning</li>
+            <li>Interface compatibility (bonding / plating / assembly)</li>
+            <li>Constraints-driven optimization (size, stack, reliability)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote">
+        Objective: minimize development risk and shorten evaluation cycles for packaging engineering teams.
+      </div>
+    </div>
+  </section>
+
+  <section id="applications" class="grid">
+    <div class="card section span12">
+      <h2>Target use cases</h2>
+      <div class="chips">
+        <div class="chip">Heat spreaders</div>
+        <div class="chip">Reinforcement rings (large substrates)</div>
+        <div class="chip">AI / HPC thermal structures</div>
+        <div class="chip">Power module baseplates</div>
+        <div class="chip">Optical / laser carriers</div>
+      </div>
+      <div class="hr"></div>
+      <div class="small">Optional: add package cross-section diagrams or SEM images (engineering-friendly, minimal marketing).</div>
+    </div>
+  </section>
+
+  <section id="collaboration" class="grid">
+    <div class="card section span12">
+      <h2>Collaboration model</h2>
+      <p>Typical engagement steps for early-stage evaluation:</p>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div><div class="t">Requirements discussion</div><p class="d">Package type, size, thermal target, reliability constraints, interfaces.</p></div></div>
+        <div class="step"><div class="num">2</div><div><div class="t">Material & structure recommendation</div><p class="d">CTE / k window and structural approach aligned with constraints.</p></div></div>
+        <div class="step"><div class="num">3</div><div><div class="t">Feasibility / risk assessment</div><p class="d">DFM guidance and key risk items (under NDA if required).</p></div></div>
+        <div class="step"><div class="num">4</div><div><div class="t">Prototype or technology transfer</div><p class="d">Prototype support, verification plan, or technology transfer path.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="grid">
+    <div class="card section span12">
+      <h2>Contact — technical discussion</h2>
+      <div class="contact">
+        <div>
+          <p>
+            For engineering evaluation or feasibility review, contact us to start a technical discussion.
+            NDA-based discussions are available.
+          </p>
+          <div class="hr"></div>
+          <div class="pill"><b>Email</b> <span><a href="mailto:eddie@apreventmed.com">eddie@apreventmed.com</a></span></div>
+          <div style="height:10px"></div>
+          <div class="pill"><b>Company</b> <span>APereventmed</span></div>
+          <div style="height:10px"></div>
+          <div class="pill"><b>Focus</b> <span>AlSiC / MMC solutions for semiconductor packaging</span></div>
+        </div>
+        <div class="card section" style="background: rgba(11,15,20,.35)">
+          <h2 style="margin-bottom:6px">Optional add-ons</h2>
+          <ul>
+            <li>AlSiC vs Cu / CuW / Kovar comparison table</li>
+            <li>Typical failure modes & mitigation notes</li>
+            <li>Downloadable 1-page PDF (NDA-gated)</li>
+          </ul>
+        </div>
+      </div>
+      <footer>
+        Note: the logo above is an SVG approximation based on your reference image. If you provide the original logo file (PNG/SVG),
+        I can replace it with an exact match.
+      </footer>
+    </div>
+  </section>
+</div>
+</body>
+</html>
